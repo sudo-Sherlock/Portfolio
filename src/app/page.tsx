@@ -18,13 +18,22 @@ import {
   Layers,
   ArrowUpRight
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { projectsData, ProjectCaseStudy } from "@/data/projects";
 import { ctfWriteups, CTFWriteup } from "@/data/ctf";
 import ProjectModal from "@/components/ProjectModal";
 import CTFModal from "@/components/CTFModal";
 import StatusBadge from "@/components/StatusBadge";
-import ThreeCanvas from "@/components/ThreeCanvas";
 import Card3DTilt from "@/components/Card3DTilt";
+
+const ThreeCanvas = dynamic(() => import("@/components/ThreeCanvas"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full min-h-[340px] flex items-center justify-center text-xs font-mono text-ink-muted">
+      Loading 3D lattice...
+    </div>
+  ),
+});
 
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null);

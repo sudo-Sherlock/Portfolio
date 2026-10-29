@@ -22,10 +22,16 @@ export default function ThreeCanvas() {
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
     camera.position.z = 5.2;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+    } catch (e) {
+      console.warn("WebGL initialization skipped:", e);
+      return;
+    }
 
     // Group for all 3D objects
     const mainGroup = new THREE.Group();
@@ -191,3 +197,4 @@ export default function ThreeCanvas() {
     </div>
   );
 }
+
