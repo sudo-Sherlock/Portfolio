@@ -110,7 +110,7 @@ export default function ContactPage() {
               {/* Social Channels */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-rule-border">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/sudo-Sherlock"
                   target="_blank"
                   rel="noreferrer"
                   className="p-4 rounded-lg bg-paper border border-rule-border hover:border-forest/40 hover:bg-paper-muted transition-all flex items-center justify-between group"

@@ -37,7 +37,7 @@ export const projectsData: ProjectCaseStudy[] = [
     date: "October – November 2026",
     deadline: "16 November 2026",
     teamSize: "Team of 4",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/sudo-Sherlock/Portfolio",
     summary:
       "A university-mandated team project exploring client-server socket communication, message serialization, and network layer behaviour under varying transmission conditions.",
     tags: ["Computer Networks", "Sockets", "Python", "TCP/IP", "Wireshark", "Packet Analysis"],
@@ -85,7 +85,7 @@ export const projectsData: ProjectCaseStudy[] = [
     category: "Python Programming",
     status: "Completed",
     date: "September – October 2026",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/sudo-Sherlock/Portfolio",
     summary:
       "A structured collection of Python utilities and computational problem-solving scripts developed to establish rigorous understanding of control flow, data structures, and edge-case validation.",
     tags: ["Python 3", "Algorithms", "Clean Code", "Input Validation", "Data Structures"],

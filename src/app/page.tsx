@@ -113,7 +113,7 @@ export default function HomePage() {
                 </Link>
 
                 <a
-                  href="https://github.com"
+                  href="https://github.com/sudo-Sherlock"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-lg text-xs font-mono text-ink-secondary hover:text-ink transition-colors"
