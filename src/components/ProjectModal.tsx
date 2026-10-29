@@ -255,3 +255,4 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     </div>
   );
 }
+

@@ -14,6 +14,7 @@ export default function Navbar() {
     { label: "About Me", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "CTF & Security", href: "/ctf" },
+    { label: "Skills", href: "/skills" },
     { label: "Experience", href: "/experience" },
     { label: "Beyond Tech", href: "/interests" },
     { label: "Contact", href: "/contact" },
@@ -130,3 +131,4 @@ export default function Navbar() {
     </header>
   );
 }
+

@@ -192,3 +192,4 @@ export default function CTFModal({ writeup, onClose }: CTFModalProps) {
     </div>
   );
 }
+

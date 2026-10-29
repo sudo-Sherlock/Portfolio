@@ -14,14 +14,16 @@ import {
   Lock,
   ChevronDown,
   ChevronUp,
-  Cpu
+  Cpu,
+  Activity
 } from "lucide-react";
 import { ctfWriteups, technicalArticles, CTFWriteup, TechnicalArticle } from "@/data/ctf";
 import CTFModal from "@/components/CTFModal";
+import NmapSimulator from "@/components/NmapSimulator";
 
 export default function CTFPage() {
   const [selectedWriteup, setSelectedWriteup] = useState<CTFWriteup | null>(null);
-  const [activeTab, setActiveTab] = useState<"writeups" | "journal">("writeups");
+  const [activeTab, setActiveTab] = useState<"writeups" | "simulator" | "journal">("writeups");
   const [expandedArticle, setExpandedArticle] = useState<string | null>("nmap-scan-interpretation-case-study");
 
   return (
@@ -57,17 +59,17 @@ export default function CTFPage() {
 
       {/* Primary Section Switcher */}
       <section className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex border-b border-rule-border gap-8">
+        <div className="flex border-b border-rule-border gap-6 sm:gap-8 overflow-x-auto pb-0">
           <button
             type="button"
             onClick={() => setActiveTab("writeups")}
-            className={`pb-4 text-sm font-mono font-medium transition-all relative ${
+            className={`pb-4 text-xs sm:text-sm font-mono font-medium transition-all relative shrink-0 ${
               activeTab === "writeups"
                 ? "text-forest font-bold"
                 : "text-ink-secondary hover:text-ink"
             }`}
           >
-            <span>CTF Challenge Write-ups ({ctfWriteups.length})</span>
+            <span>CTF Write-ups ({ctfWriteups.length})</span>
             {activeTab === "writeups" && (
               <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-forest" />
             )}
@@ -75,20 +77,51 @@ export default function CTFPage() {
 
           <button
             type="button"
+            onClick={() => setActiveTab("simulator")}
+            className={`pb-4 text-xs sm:text-sm font-mono font-medium transition-all relative shrink-0 ${
+              activeTab === "simulator"
+                ? "text-forest font-bold"
+                : "text-ink-secondary hover:text-ink"
+            }`}
+          >
+            <span>Scan Diagnostics Simulator</span>
+            {activeTab === "simulator" && (
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-forest" />
+            )}
+          </button>
+
+          <button
+            type="button"
             onClick={() => setActiveTab("journal")}
-            className={`pb-4 text-sm font-mono font-medium transition-all relative ${
+            className={`pb-4 text-xs sm:text-sm font-mono font-medium transition-all relative shrink-0 ${
               activeTab === "journal"
                 ? "text-forest font-bold"
                 : "text-ink-secondary hover:text-ink"
             }`}
           >
-            <span>Technical Learning Journal ({technicalArticles.length})</span>
+            <span>Technical Journal ({technicalArticles.length})</span>
             {activeTab === "journal" && (
               <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-forest" />
             )}
           </button>
         </div>
       </section>
+
+      {/* TAB 2: Nmap Diagnostics Simulator */}
+      {activeTab === "simulator" && (
+        <section className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="max-w-3xl space-y-2">
+            <h2 className="text-2xl font-display font-bold text-ink">
+              Network Protocol & Scanner Behavior Lab
+            </h2>
+            <p className="text-sm text-ink-secondary">
+              Interactive demonstration of how packet flags, connection handshakes, and firewall filters
+              affect observable port states.
+            </p>
+          </div>
+          <NmapSimulator />
+        </section>
+      )}
 
       {/* TAB 1: CTF Writeups */}
       {activeTab === "writeups" && (
@@ -290,3 +323,4 @@ export default function CTFPage() {
     </div>
   );
 }
+

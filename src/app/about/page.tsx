@@ -12,6 +12,7 @@ import {
   HelpCircle
 } from "lucide-react";
 import { storyChapters } from "@/data/about";
+import Timeline from "@/components/Timeline";
 
 export const metadata = {
   title: "My Story | Gaarvi Bhatia",
@@ -131,6 +132,11 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Interactive Milestones & Progression Timeline */}
+      <section className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Timeline />
+      </section>
+
       {/* Educational & Career Alignment Summary */}
       <section className="bg-paper-muted/60 py-16 border-y border-rule-border">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,3 +196,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

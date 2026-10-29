@@ -115,3 +115,4 @@ export const karateAchievements: KarateAchievement[] = [
       "Consistent podium finishes achieved through years of rigorous dojo training, physical conditioning, and mental focus. Taught the lifelong value of repetition, sportsmanship, and mental resilience under scrutiny."
   }
 ];
+

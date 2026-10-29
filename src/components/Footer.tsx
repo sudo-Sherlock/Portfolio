@@ -46,6 +46,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/skills" className="text-ink-secondary hover:text-forest transition-colors">
+                  Skills & Learning Profile
+                </Link>
+              </li>
+              <li>
                 <Link href="/ctf" className="text-ink-secondary hover:text-forest transition-colors">
                   CTF Challenges & Write-ups
                 </Link>
@@ -112,3 +117,4 @@ export default function Footer() {
     </footer>
   );
 }
+
