@@ -83,7 +83,7 @@ export default function AboutPage() {
             <article
               key={chapter.id}
               id={chapter.id}
-              className="scroll-mt-28 space-y-6 pt-8 border-t border-rule-border first:border-t-0 first:pt-0"
+              className="scroll-mt-28 space-y-6 pt-8 border-t border-rule-border first:border-t-0 first:pt-0 scroll-reveal"
             >
               {/* Chapter Header */}
               <div className="space-y-2">

@@ -50,7 +50,7 @@ export default function HomePage() {
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Identity & Typography */}
-            <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8 scroll-reveal">
               {/* Status & Academic Identity Pill */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage text-forest text-xs font-mono border border-sage-deep">
                 <span className="w-2 h-2 rounded-full bg-forest animate-pulse" />
@@ -125,7 +125,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Column: Interactive 3D Cryptographic Evidence Lattice */}
-            <div className="lg:col-span-5 flex items-center justify-center">
+            <div className="lg:col-span-5 flex items-center justify-center scroll-reveal-scale delay-200">
               <div className="w-full max-w-[420px] aspect-square rounded-2xl bg-paper-card/70 border border-rule-border shadow-elevated p-2 relative overflow-hidden backdrop-blur-sm">
                 <ThreeCanvas />
               </div>
@@ -138,7 +138,7 @@ export default function HomePage() {
       <section className="bg-paper-muted/60 py-16 sm:py-20 border-y border-rule-border">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-5 space-y-3">
+            <div className="lg:col-span-5 space-y-3 scroll-reveal-left">
               <span className="text-xs font-mono uppercase tracking-wider text-forest font-semibold">
                 Perspective
               </span>
@@ -146,7 +146,7 @@ export default function HomePage() {
                 A little about the person behind the projects.
               </h2>
             </div>
-            <div className="lg:col-span-7 space-y-4 text-ink-secondary text-base sm:text-lg leading-relaxed">
+            <div className="lg:col-span-7 space-y-4 text-ink-secondary text-base sm:text-lg leading-relaxed scroll-reveal-right delay-150">
               <p>
                 My path did not begin in front of a terminal. It began with an absorbing interest in
                 forensic science—the discipline of reconstructing events, questioning apparent facts, and
@@ -170,7 +170,7 @@ export default function HomePage() {
       {/* 5.4 A Journey with a Clear Connection */}
       <section>
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-2xl space-y-3">
+          <div className="max-w-2xl space-y-3 scroll-reveal">
             <span className="text-xs font-mono uppercase tracking-wider text-forest font-semibold">
               Intellectual Continuity
             </span>
@@ -184,7 +184,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Milestone 1 */}
-            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6">
+            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6 scroll-reveal delay-100">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-terracotta-subtle text-terracotta flex items-center justify-center">
                   <Search className="w-5 h-5" />
@@ -209,7 +209,7 @@ export default function HomePage() {
             </div>
 
             {/* Milestone 2 */}
-            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6">
+            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6 scroll-reveal delay-200">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-forest/10 text-forest flex items-center justify-center">
                   <Cpu className="w-5 h-5" />
@@ -234,7 +234,7 @@ export default function HomePage() {
             </div>
 
             {/* Milestone 3 */}
-            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6">
+            <div className="p-6 sm:p-8 rounded-xl bg-paper-card border border-rule-border shadow-editorial flex flex-col justify-between space-y-6 scroll-reveal delay-300">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-sage text-forest flex items-center justify-center">
                   <Shield className="w-5 h-5" />
@@ -264,7 +264,7 @@ export default function HomePage() {
       {/* 5.3 Featured Work */}
       <section>
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-rule-border pb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-rule-border pb-6 scroll-reveal">
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-forest font-semibold">
                 Selected Work
@@ -286,11 +286,13 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {featuredProjects.map((project) => (
+            {featuredProjects.map((project, idx) => (
               <Card3DTilt
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="cursor-pointer"
+                className={`cursor-pointer scroll-reveal ${
+                  idx === 0 ? "delay-100" : idx === 1 ? "delay-200" : "delay-300"
+                }`}
               >
                 <div className="group p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between h-full">
                   <div className="space-y-4">
@@ -324,7 +326,7 @@ export default function HomePage() {
           </div>
 
           {/* Featured CTF Dissection Banner */}
-          <div className="p-6 sm:p-8 rounded-xl bg-paper-muted border border-rule-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="p-6 sm:p-8 rounded-xl bg-paper-muted border border-rule-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6 scroll-reveal-scale delay-150">
             <div className="space-y-2 max-w-2xl">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 rounded text-xs font-mono bg-sage text-forest font-medium">
@@ -356,7 +358,7 @@ export default function HomePage() {
       {/* 5.5 Beyond the Screen */}
       <section className="bg-paper-muted/40 py-16 sm:py-20 border-y border-rule-border">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 scroll-reveal">
             <div className="space-y-2 max-w-xl">
               <span className="text-xs font-mono uppercase tracking-wider text-forest font-semibold">
                 Multidimensional Perspective
@@ -379,7 +381,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Karate card */}
-            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3">
+            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3 scroll-reveal delay-100">
               <div className="w-8 h-8 rounded bg-forest/10 text-forest flex items-center justify-center">
                 <Trophy className="w-4 h-4" />
               </div>
@@ -393,7 +395,7 @@ export default function HomePage() {
             </div>
 
             {/* Mysteries & Deduction card */}
-            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3">
+            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3 scroll-reveal delay-200">
               <div className="w-8 h-8 rounded bg-terracotta-subtle text-terracotta flex items-center justify-center">
                 <BookOpen className="w-4 h-4" />
               </div>
@@ -407,7 +409,7 @@ export default function HomePage() {
             </div>
 
             {/* Gaming systems card */}
-            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3">
+            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3 scroll-reveal delay-300">
               <div className="w-8 h-8 rounded bg-sage text-forest flex items-center justify-center">
                 <Gamepad2 className="w-4 h-4" />
               </div>
@@ -421,7 +423,7 @@ export default function HomePage() {
             </div>
 
             {/* Hardware & Virtualization card */}
-            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3">
+            <div className="p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial space-y-3 scroll-reveal delay-400">
               <div className="w-8 h-8 rounded bg-paper-muted text-ink flex items-center justify-center border border-rule-border">
                 <Cpu className="w-4 h-4" />
               </div>
@@ -440,7 +442,7 @@ export default function HomePage() {
       {/* 5.6 Closing Section */}
       <section>
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 md:p-16 rounded-2xl bg-paper-card border border-rule-border shadow-elevated text-center space-y-6 max-w-3xl mx-auto">
+          <div className="p-8 sm:p-12 md:p-16 rounded-2xl bg-paper-card border border-rule-border shadow-elevated text-center space-y-6 max-w-3xl mx-auto scroll-reveal-scale">
             <span className="text-xs font-mono uppercase tracking-widest text-forest font-semibold">
               The Journey Ahead
             </span>

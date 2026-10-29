@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollDynamics from "@/components/ScrollDynamics";
+import { ScrollRevealObserver } from "@/components/ScrollReveal";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -46,6 +47,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-paper text-ink selection:bg-sage selection:text-forest">
         <ScrollDynamics />
+        <ScrollRevealObserver />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

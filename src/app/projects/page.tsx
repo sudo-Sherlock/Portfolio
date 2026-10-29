@@ -112,11 +112,13 @@ export default function ProjectsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, idx) => (
               <Card3DTilt
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="cursor-pointer"
+                className={`cursor-pointer scroll-reveal ${
+                  idx % 3 === 0 ? "delay-100" : idx % 3 === 1 ? "delay-200" : "delay-300"
+                }`}
               >
                 <article className="group p-6 sm:p-7 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between space-y-6 h-full">
                   <div className="space-y-4">

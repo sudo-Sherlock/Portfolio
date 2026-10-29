@@ -127,10 +127,12 @@ export default function CTFPage() {
       {activeTab === "writeups" && (
         <section className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ctfWriteups.map((writeup) => (
+            {ctfWriteups.map((writeup, idx) => (
               <article
                 key={writeup.id}
-                className="group p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between cursor-pointer space-y-6"
+                className={`group p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between cursor-pointer space-y-6 scroll-reveal ${
+                  idx === 0 ? "delay-100" : idx === 1 ? "delay-200" : "delay-300"
+                }`}
                 onClick={() => setSelectedWriteup(writeup)}
               >
                 <div className="space-y-4">
