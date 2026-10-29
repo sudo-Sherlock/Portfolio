@@ -146,3 +146,4 @@ export const learningPhilosophy = {
     "Clear separation between theoretical understanding, active practice, and completed engineering work."
   ]
 };
+

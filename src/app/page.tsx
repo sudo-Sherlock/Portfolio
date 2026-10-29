@@ -23,6 +23,8 @@ import { ctfWriteups, CTFWriteup } from "@/data/ctf";
 import ProjectModal from "@/components/ProjectModal";
 import CTFModal from "@/components/CTFModal";
 import StatusBadge from "@/components/StatusBadge";
+import ThreeCanvas from "@/components/ThreeCanvas";
+import Card3DTilt from "@/components/Card3DTilt";
 
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null);
@@ -35,79 +37,89 @@ export default function HomePage() {
   return (
     <div className="space-y-24 sm:space-y-32 pb-16">
       {/* 5.1 Hero Section */}
-      <section className="pt-12 sm:pt-20 lg:pt-28">
+      <section className="pt-8 sm:pt-16 lg:pt-20">
         <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-8">
-            {/* Status & Academic Identity Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage text-forest text-xs font-mono border border-sage-deep">
-              <span className="w-2 h-2 rounded-full bg-forest animate-pulse" />
-              <span>B.Tech CS & AI • Newton School of Technology, Rishihood University</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Identity & Typography */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+              {/* Status & Academic Identity Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage text-forest text-xs font-mono border border-sage-deep">
+                <span className="w-2 h-2 rounded-full bg-forest animate-pulse" />
+                <span>B.Tech CS & AI • Newton School of Technology, Rishihood University</span>
+              </div>
 
-            {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-ink tracking-tight leading-[1.08]">
-                I look closer.
-              </h1>
-              <p className="text-xl sm:text-2xl text-forest font-serif italic font-medium">
-                “Curiosity drives the investigation. Logic reveals the answer.”
+              {/* Headline */}
+              <div className="space-y-3 sm:space-y-4">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-ink tracking-tight leading-[1.08]">
+                  I look closer.
+                </h1>
+                <p className="text-xl sm:text-2xl text-forest font-serif italic font-medium">
+                  “Curiosity drives the investigation. Logic reveals the answer.”
+                </p>
+              </div>
+
+              {/* Supporting Copy */}
+              <p className="text-base sm:text-lg text-ink-secondary leading-relaxed font-normal">
+                I’m <strong className="text-ink font-semibold">Gaarvi Bhatia</strong>, a Computer Science and
+                Artificial Intelligence student with a longstanding fascination for forensic investigation and a
+                growing practical focus on cybersecurity. From exploring how digital systems work to solving CTF
+                challenges and documenting technical findings, I enjoy following questions beyond their obvious
+                answers.
               </p>
-            </div>
 
-            {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-ink-secondary leading-relaxed font-normal">
-              I’m <strong className="text-ink font-semibold">Gaarvi Bhatia</strong>, a Computer Science and
-              Artificial Intelligence student with a longstanding fascination for forensic investigation and a
-              growing practical focus on cybersecurity. From exploring how digital systems work to solving CTF
-              challenges and documenting technical findings, I enjoy following questions beyond their obvious
-              answers.
-            </p>
+              {/* Areas of Interest Tags */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                {[
+                  "Cybersecurity",
+                  "Digital Forensics",
+                  "Network Security",
+                  "Investigative Problem-Solving",
+                  "Python & Systems"
+                ].map((interest) => (
+                  <span
+                    key={interest}
+                    className="px-3 py-1 rounded-md bg-paper-card text-ink-secondary text-xs font-mono border border-rule-border shadow-editorial"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
 
-            {/* Areas of Interest Tags */}
-            <div className="flex flex-wrap items-center gap-2 pt-2">
-              {[
-                "Cybersecurity",
-                "Digital Forensics",
-                "Network Security",
-                "Investigative Problem-Solving",
-                "Python & Systems"
-              ].map((interest) => (
-                <span
-                  key={interest}
-                  className="px-3 py-1 rounded-md bg-paper-card text-ink-secondary text-xs font-mono border border-rule-border shadow-editorial"
+              {/* Calls to Action */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-forest text-paper font-medium text-sm hover:bg-forest-hover transition-colors shadow-editorial"
                 >
-                  {interest}
-                </span>
-              ))}
+                  <span>Explore My Work</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-paper-card text-ink font-medium text-sm border border-rule-border hover:bg-paper-muted transition-colors shadow-editorial"
+                >
+                  <span>Read My Story</span>
+                  <ChevronRight className="w-4 h-4 text-ink-muted" />
+                </Link>
+
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-lg text-xs font-mono text-ink-secondary hover:text-ink transition-colors"
+                >
+                  <span>GitHub</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
 
-            {/* Calls to Action */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-forest text-paper font-medium text-sm hover:bg-forest-hover transition-colors shadow-editorial"
-              >
-                <span>Explore My Work</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-paper-card text-ink font-medium text-sm border border-rule-border hover:bg-paper-muted transition-colors shadow-editorial"
-              >
-                <span>Read My Story</span>
-                <ChevronRight className="w-4 h-4 text-ink-muted" />
-              </Link>
-
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-lg text-xs font-mono text-ink-secondary hover:text-ink transition-colors"
-              >
-                <span>GitHub</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+            {/* Right Column: Interactive 3D Cryptographic Evidence Lattice */}
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <div className="w-full max-w-[420px] aspect-square rounded-2xl bg-paper-card/70 border border-rule-border shadow-elevated p-2 relative overflow-hidden backdrop-blur-sm">
+                <ThreeCanvas />
+              </div>
             </div>
           </div>
         </div>
@@ -266,37 +278,39 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {featuredProjects.map((project) => (
-              <div
+              <Card3DTilt
                 key={project.id}
-                className="group p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between cursor-pointer"
                 onClick={() => setSelectedProject(project)}
+                className="cursor-pointer"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <StatusBadge status={project.status} />
-                    <span className="text-xs font-mono text-ink-muted">{project.category}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-display font-bold text-ink group-hover:text-forest transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-ink-secondary mt-1 font-medium">
-                      {project.subtitle}
+                <div className="group p-6 rounded-xl bg-paper-card border border-rule-border shadow-editorial hover:border-forest/40 transition-all flex flex-col justify-between h-full">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <StatusBadge status={project.status} />
+                      <span className="text-xs font-mono text-ink-muted">{project.category}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-display font-bold text-ink group-hover:text-forest transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-ink-secondary mt-1 font-medium">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    <p className="text-xs sm:text-sm text-ink-secondary line-clamp-3 leading-relaxed">
+                      {project.summary}
                     </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-ink-secondary line-clamp-3 leading-relaxed">
-                    {project.summary}
-                  </p>
-                </div>
 
-                <div className="pt-6 border-t border-rule-border mt-6 flex items-center justify-between text-xs">
-                  <span className="font-mono text-ink-muted">{project.date}</span>
-                  <span className="inline-flex items-center gap-1 text-forest font-medium group-hover:translate-x-0.5 transition-transform">
-                    <span>Read Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                  <div className="pt-6 border-t border-rule-border mt-6 flex items-center justify-between text-xs">
+                    <span className="font-mono text-ink-muted">{project.date}</span>
+                    <span className="inline-flex items-center gap-1 text-forest font-medium group-hover:translate-x-0.5 transition-transform">
+                      <span>Read Case Study</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Card3DTilt>
             ))}
           </div>
 
